@@ -193,7 +193,7 @@ function weWantsIt () {
   var ringElement = document.getElementById('the-ring')
   var ringRemoved = frodoElement.removeChild(ringElement)
   gollumDiv.appendChild(ringRemoved)
-  var mountDoomDiv = mordorArticle.getElementById('mount-doom')
+  var mountDoomDiv = document.getElementById('mount-doom')
   var gollumMoved = mordorArticle.removeChild(gollumDiv)
   mountDoomDiv.appendChild(gollumMoved)
 }
@@ -209,19 +209,23 @@ function thereAndBackAgain () {
   // Move all the hobbits back to the shire
   var shireUl = document.getElementById('The Shire').getElementsByTagName('ul')[0]
   var mordorUl = document.getElementById('Mordor').getElementsByTagName('ul')[0]
-  var rivendellUl = document.getElementById('Rivendell').getElementsByTagName('ul')[0]
+  var rivendellUl = document.getElementById('Rivendell')
+  var fellowshipDiv = document.getElementById('the-fellowship')
 
   var frodoElement = mordorUl.getElementsByTagName('li')[0]
   var samElement = mordorUl.getElementsByTagName('li')[1]
-  var merryElement = rivendellUl.getElementsByTagName('tagName')('li')[4]
-  var pippinElement = rivendellUl.getElementsByTagName('tagName')('li')[5]
+  var merryElement = fellowshipDiv.getElementsByTagName('li')[4]
+  var pippinElement = fellowshipDiv.getElementsByTagName('li')[5]
 
   // remove frodo and sam from mordor and add to shire
-  var frodoRemove = mordorUl.removeChild(frodoElement)
-  shireUl.appendChild(frodoRemove)
-  var samRemove = mordorUl.removeChild(samElement)
-  shireUl.appendChild(samRemove)
+  // var frodoRemove = mordorUl.removeChild(frodoElement)
+  shireUl.appendChild(frodoElement)
+  // var samRemove = mordorUl.removeChild(samElement)
+  shireUl.appendChild(samElement)
   // remove pippin and meery from fellowship
-
+  shireUl.appendChild(merryElement)
+  shireUl.appendChild(pippinElement)
   // remove all the buddies from the document
+  rivendellUl.removeChild(fellowshipDiv)
 }
+thereAndBackAgain()
